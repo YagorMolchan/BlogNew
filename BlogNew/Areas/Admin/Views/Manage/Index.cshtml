@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.UserName</h2>
+
+<ul>
+    <li>@Html.ActionLink("Категории","Index","Category")</li>
+    <li>@Html.ActionLink("Статьи","Index","Article")</li>
+</ul>
+

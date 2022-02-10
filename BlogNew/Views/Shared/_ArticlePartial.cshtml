@@ -1,0 +1,21 @@
+﻿@model BlogNew.Models.Entities.Article
+
+<div class="link-container">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+    @Html.ActionLink("Details", "Details", new { id = Model.Id })
+    @Html.ActionLink("Delete", "Delete", new { id = Model.Id })
+</div>
+<div class="article-container" style="display: flex; justify-content: space-between; flex-direction: row; padding-top: 0px;">
+    @if (Model.ImagePath != null) { 
+        <div class="img-container">
+            <img class="img-thumbnail" src="@Url.Content(Model.ImagePath)" width="200" height="100" alt="Image" />
+        </div>
+    }    
+<div class="description-container" style="padding: 5px;">
+    @Html.ActionLink(Model.Name, "Details", "Article", new { id = Model.Id }, new { @style = "margin-top: 0px; color: black; font: bold;" })
+    @if (Model.ShortDescription != null)
+    {
+        <h4>@Model.ShortDescription</h4>
+    }
+</div>
+</div>

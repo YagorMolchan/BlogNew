@@ -1,0 +1,31 @@
+﻿@model BlogNew.Models.Entities.Article
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+<div class="article-container" style="display: flex; justify-content: space-between; flex-direction: row; padding-top: 0px;">
+    @if (Model.ImagePath != null)
+    {
+        <div class="img-container">
+            <img class="img-thumbnail" src="@Url.Content(Model.ImagePath)" width="200" height="100" alt="Image" />
+        </div>
+    }
+<div class="description-container" style="padding: 5px;">
+    <h2 style="margin-top: 0px;">@Model.Name</h2>
+    @if (Model.ShortDescription != null)
+    {
+        <h4>@Model.ShortDescription</h4>
+    }
+</div>
+</div>
+<div>
+    @Model.Text
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

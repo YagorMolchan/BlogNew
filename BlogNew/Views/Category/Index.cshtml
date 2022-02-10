@@ -1,0 +1,11 @@
+﻿@model IEnumerable<BlogNew.Models.Entities.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    <a class="btn btn-block btn-default btn-primary">@item.Name</a>
+}

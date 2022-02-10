@@ -1,0 +1,66 @@
+﻿@model BlogNew.Areas.Admin.Models.ViewModels.ArticleCreateViewModel
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Добавить статью</h2>
+@using (Html.BeginForm("Create", "Article", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+
+    <div class="form-group">
+        @Html.LabelFor(model => Model.Name, new { @class = "control-label col-md-2" })<br />
+        <div class="col-md-10">
+            @Html.EditorFor(model => Model.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => Model.Name)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => Model.CategoryId, new { @class = "control-label col-md-2" })<br />
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => Model.CategoryId, Model.Categories)
+            @Html.ValidationMessageFor(m => Model.CategoryId)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => Model.ImagePath, new { @class = "control-label col-md-2" })<br />
+        <div class="col-md-10">
+            <input type="file" name="ImageFile" />
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => Model.ShortDescription, new { @class = "control-label col-md-2" })<br />
+        <div class="col-md-10">
+            @Html.TextAreaFor(m => Model.ShortDescription, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => Model.ShortDescription)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => Model.TagText, new { @class = "control-label col-md-2" })<br />
+        <div class="col-md-10">
+            @Html.TextAreaFor(m => Model.TagText, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => Model.Text, new { @class = "control-label col-md-2" })<br />
+        <div class="col-md-10">
+            @Html.TextAreaFor(m => Model.Text, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => Model.Text)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-success" />
+        </div>
+    </div>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
